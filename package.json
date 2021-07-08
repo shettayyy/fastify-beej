@@ -1,0 +1,9 @@
+{
+  "name": "fastify-beej",
+  "version": "0.0.1",
+  "description": "A boilerplate to create GraphQL APIs using fastify.",
+  "main": "index.js",
+  "repository": "https://github.com/rashtay/fastify-beej.git",
+  "author": "Rahul Shetty <shettyrahul8june@gmail.com>",
+  "license": "MIT"
+}
