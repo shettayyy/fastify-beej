@@ -6,7 +6,5 @@
   "repository": "https://github.com/rashtay/fastify-beej.git",
   "author": "Rahul Shetty <shettyrahul8june@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "fastify": "^3.18.1"
-  }
+  "dependencies": {}
 }
