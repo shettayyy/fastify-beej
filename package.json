@@ -6,6 +6,13 @@
   "repository": "https://github.com/rashtay/fastify-beej.git",
   "author": "Rahul Shetty <shettyrahul8june@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "docker:build": "docker build -t rashtay/fastify-beej .",
+    "docker:run": "docker run rashtay/fastify-beej",
+    "docker:scan": "docker scan rashtay/fastify-beej",
+    "docker:sh": "docker run -it rashtay/fastify-beej sh"
+  },
   "dependencies": {
     "fastify": "^3.20.2"
   }
