@@ -5,6 +5,7 @@ services:
     image: redis
   fastifybeej:
     image: fastifybeej
+    restart: unless-stopped
     build:
       context: .
       dockerfile: ./Dockerfile.dev
