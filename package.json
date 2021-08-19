@@ -8,10 +8,10 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "docker:build": "docker build -t rashtay/fastify-beej .",
-    "docker:run": "docker run rashtay/fastify-beej",
-    "docker:scan": "docker scan rashtay/fastify-beej",
-    "docker:sh": "docker run -it rashtay/fastify-beej sh"
+    "docker:build": "docker build -t rashtay/fastifybeej .",
+    "docker:run": "docker run rashtay/fastifybeej",
+    "docker:scan": "docker scan rashtay/fastifybeej",
+    "docker:sh": "docker run -it rashtay/fastifybeej sh"
   },
   "dependencies": {
     "fastify": "^3.20.2"
