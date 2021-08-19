@@ -1,11 +1,13 @@
-version: '3.4'
+version: "3.4"
 
 services:
+  redis-server:
+    image: redis
   fastifybeej:
     image: fastifybeej
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfile.dev
     environment:
       NODE_ENV: development
     ports:
