@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": ["standard"],
+  "extends": ["standard", "plugin:prettier/recommended"],
   "rules": {
     "prefer-const": 2,
     "no-var": 2,
