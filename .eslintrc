@@ -1,6 +1,12 @@
 {
   "root": true,
-  "extends": ["standard", "plugin:prettier/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "standard",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
   "rules": {
     "prefer-const": 2,
     "no-var": 2,
@@ -34,10 +40,5 @@
       "error",
       { "props": true, "ignorePropertyModificationsFor": ["state"] }
     ]
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
   }
 }
