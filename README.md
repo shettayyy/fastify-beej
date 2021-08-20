@@ -2,6 +2,37 @@
 
 A boilerplate to create GraphQL APIs using fastify
 
+## Add Shields
+
+Coming soon - Shields/badges from shields.io
+
+## Getting Started
+
+- [Usage](#usage)
+- [Tools and Libraries](#tools-and-libraries)
+- [Path resolver](#path-resolver)
+- [Global Types](#global-types)
+- [Debugging](#debugging)
+- [Linting](#linting)
+- [Release History](#release-history)
+- [Contributing](#contributing)
+- [Author](#author)
+- [FAQ](#faq)
+- [Support](#support)
+- [License](#license)
+
+## Usage
+
+## Tools and Libraries
+
+## Path resolver
+
+## Global types
+
+## Debugging
+
+## Linting
+
 ## Docker Commands
 
 - `docker ps`: List all running containers. If you add the flag `-all`, it will show you all the containers at halt.
@@ -15,3 +46,27 @@ A boilerplate to create GraphQL APIs using fastify
 - `docker kill <container-id>`: A `SIGKILL` (kill the process signal) message is sent to the container to stop the container.
 - `docker exec -it <container id> <command>`: Executes your commands in the container. The `-i` flag attaches our terminal to the `STDIN` channel of the container. The `-t` flag formats the input and output for us.
 - `docker exec -it <container id> sh`: Opens the termnal within the container.
+
+## Release History
+
+- Coming soon
+
+## Contributing
+
+Fastify Beej welcomes contributions to our open source project. When contributing, please follow the [Contributing](https://github.com/rashtay/React_Native_Seed/blob/main/CONTRIBUTING.md) guide.
+
+## Author
+
+- [Rahul Shetty](https://github.com/rashtay)
+
+## FAQ
+
+If you run into any issues, go through the [F.A.Q.](https://github.com/rashtay/React_Native_Seed/blob/main/FAQ.md) file. Amongst other things, this document contains information about common issues.
+
+## Support
+
+- If any information is missing from the [README](https://github.com/rashtay/React_Native_Seed/blob/main/README.md) file, want to raise a feature request or report any bug, please create a new [issue](https://github.com/rashtay/React_Native_Seed/issues) with appropriate labels.
+
+## License
+
+For licensing information, go through [License](https://github.com/rashtay/React_Native_Seed/blob/main/LICENSE) file.
