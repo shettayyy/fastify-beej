@@ -1,3 +1,3 @@
-export const hello = (): boolean => {
-  return false;
+export const getTest = (): string => {
+  return 'test';
 };

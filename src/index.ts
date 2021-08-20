@@ -2,9 +2,7 @@
 import fastify, { FastifyInstance } from 'fastify';
 import { Server, IncomingMessage, ServerResponse } from 'http';
 import redis from 'redis';
-import { hello } from 'utils/test';
-
-hello();
+import { getTest } from 'utils/test';
 
 // Create a http server. We pass the relevant typings for our http version used.
 // By passing types we get correctly typed access to the underlying http objects in routes.
@@ -25,7 +23,7 @@ server.get('/', async (_req, res) => {
   client.get('visits', (err, visits: string | null) => {
     if (err) return err;
 
-    res.send('Number of visits:' + visits);
+    res.send(`Number of ${getTest()} visits: ${visits}`);
     client.set('visits', `${visits ? parseInt(visits, 10) + 1 : 0}`);
   });
 });
