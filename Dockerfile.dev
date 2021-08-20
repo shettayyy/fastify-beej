@@ -24,4 +24,4 @@ RUN chown -R node /usr/app
 USER node
 
 # Start the fastify application
-CMD ["yarn", "start"]
+CMD ["yarn", "start:dev"]

@@ -1,4 +1,4 @@
-version: "3.4"
+version: '3.4'
 
 services:
   fastifybeej:
@@ -15,4 +15,4 @@ services:
     ports:
       - 3000:3000
       - 9229:9229
-    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
+    command: ['node', '--inspect=0.0.0.0:9229', 'src/index.ts']
