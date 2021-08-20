@@ -2,7 +2,7 @@
   "name": "fastify-beej",
   "version": "0.0.1",
   "description": "A boilerplate to create GraphQL APIs using fastify.",
-  "main": "index.js",
+  "main": "build/index.js",
   "repository": "https://github.com/rashtay/fastify-beej.git",
   "author": "Rahul Shetty <shettyrahul8june@gmail.com>",
   "license": "MIT",
@@ -19,6 +19,8 @@
     "redis": "^3.1.2"
   },
   "devDependencies": {
+    "@types/node": "^16.6.2",
+    "@types/redis": "^2.8.31",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
