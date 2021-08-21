@@ -3,16 +3,13 @@ version: '3.4'
 services:
   fastifybeej:
     image: fastifybeej
-    restart: unless-stopped
     build:
       context: .
       dockerfile: ./Dockerfile.dev
-    environment:
-      NODE_ENV: development
     volumes:
       - .:/usr/app
       - /usr/app/node_modules
     ports:
       - 3000:3000
       - 9229:9229
-    command: ['node', '--inspect=0.0.0.0:9229', 'src/index.ts']
+    command: ['yarn', 'debug']

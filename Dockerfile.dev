@@ -1,15 +1,15 @@
 #Specify a base image
-FROM node:14-alpine
+FROM node:lts-alpine
 
 # Set the environment. This can be overridden from docker compose
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 
 # Set the root directory
 WORKDIR /usr/app
 
 # Copy project manifest files and install the dependencies
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN yarn install --silent
+COPY ["package.json", "yarn.lock", "npm-shrinkwrap.json*", "./"]
+RUN yarn install
 
 # Copy the project files
 COPY . .

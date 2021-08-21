@@ -8,7 +8,7 @@ ENV NODE_ENV=production
 WORKDIR /usr/app
 
 # Copy project manifest files and install the dependencies
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+COPY ["package.json", "yarn.lock", "npm-shrinkwrap.json*", "./"]
 RUN yarn install --production --silent
 
 # Copy the project files

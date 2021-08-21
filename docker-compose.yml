@@ -3,6 +3,7 @@ version: '3.4'
 services:
   fastifybeej:
     image: fastifybeej
+    restart: unless-stopped
     build:
       context: .
       dockerfile: ./Dockerfile
