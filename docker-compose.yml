@@ -3,10 +3,14 @@ version: '3.4'
 services:
   fastifybeej:
     image: fastifybeej
+    env_file:
+      - .env.production
     restart: unless-stopped
     build:
       context: .
       dockerfile: ./Dockerfile
+      args:
+        NODE_ENV: ${NODE_ENV} # from .env file
     environment:
       NODE_ENV: production
     ports:

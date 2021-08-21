@@ -3,9 +3,13 @@ version: '3.4'
 services:
   fastifybeej:
     image: fastifybeej
+    env_file:
+      - .env.development
     build:
       context: .
-      dockerfile: ./Dockerfile.dev
+      dockerfile: ./Dockerfile
+      args:
+        NODE_ENV: ${NODE_ENV} # from .env file
     volumes:
       - .:/usr/app
       - /usr/app/node_modules

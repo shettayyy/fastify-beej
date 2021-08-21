@@ -1,27 +1,24 @@
 #Specify a base image
-FROM node:14-alpine
+FROM node:lts-alpine
+
+# From compose args
+ARG NODE_ENV
 
 # Set the environment. This can be overridden from docker compose
-ENV NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
 
 # Set the root directory
 WORKDIR /usr/app
 
 # Copy project manifest files and install the dependencies
 COPY ["package.json", "yarn.lock", "npm-shrinkwrap.json*", "./"]
-RUN yarn install --production --silent
+RUN yarn install --silent
 
 # Copy the project files
 COPY . .
 
 # Expose the docker port to the local machine
 EXPOSE 3000
-
-# Provide necessary permission to our app folder
-RUN chown -R node /usr/app
-
-# Set the system username for the image. Can be renamed to whatever is desired
-USER node
 
 # Start the fastify application
 CMD ["yarn", "start"]
