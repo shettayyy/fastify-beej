@@ -14,6 +14,6 @@ services:
       - .:/usr/app
       - /usr/app/node_modules
     ports:
-      - 3000:3000
-      - 9229:9229
+      - ${PORT}:${PORT}
+      - ${DEBUG_PORT}:${DEBUG_PORT}
     command: ['yarn', 'start:dev']

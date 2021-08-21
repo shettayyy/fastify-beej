@@ -1,8 +1,9 @@
 #Specify a base image
-FROM node:lts-alpine
+FROM node:14-alpine
 
 # From compose args
 ARG NODE_ENV
+ARG PORT
 
 # Set the environment. This can be overridden from docker compose
 ENV NODE_ENV=${NODE_ENV}
@@ -18,7 +19,13 @@ RUN yarn install --silent
 COPY . .
 
 # Expose the docker port to the local machine
-EXPOSE 3000
+EXPOSE ${PORT}
+
+# In case of malicious behavior or because of bugs, a process running with too 
+# many privileges may have unexpected consequences on the whole system at runtime.
+# Set the system username for the image. Can be renamed to whatever is desired
+RUN addgroup -S nodejs && adduser -S nodeuser -G nodejs
+USER nodeuser
 
 # Start the fastify application
 CMD ["yarn", "start"]
