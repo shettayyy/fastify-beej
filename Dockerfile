@@ -19,7 +19,7 @@ USER nodeuser
 
 # Copy project manifest files and install the dependencies
 COPY ["package.json", "yarn.lock", "npm-shrinkwrap.json*", "./"]
-RUN yarn install --silent
+RUN rm -rf node_modules build && yarn install --frozen-lockfile --silent
 
 # Copy the project files
 COPY . .
