@@ -11,7 +11,5 @@ services:
       dockerfile: ./Dockerfile
       args:
         NODE_ENV: ${NODE_ENV} # from .env file
-    environment:
-      NODE_ENV: production
     ports:
       - ${PORT}:${PORT}
