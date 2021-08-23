@@ -17,7 +17,7 @@
     "docker:run": "docker-compose up",
     "docker:build": "docker-compose up --build",
     "docker:stop": "docker-compose down --remove-orphans",
-    "docker:clean": "docker system prune -af --volumes",
+    "docker:clean": "docker system prune -af --volumes && docker builder prune",
     "prepare": "husky install"
   },
   "dependencies": {
