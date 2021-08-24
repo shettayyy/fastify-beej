@@ -3,7 +3,7 @@ import 'source-map-support/register';
 // Require the framework and instantiate it
 import fastify, { FastifyInstance } from 'fastify';
 import { Server, IncomingMessage, ServerResponse } from 'http';
-import { getHelloWorld } from './utils/hello';
+import { getEnvironment } from './utils/environment';
 
 // Create a http server. We pass the relevant typings for our http version used.
 // By passing types we get correctly typed access to the underlying http objects in routes.
@@ -15,7 +15,7 @@ const server: FastifyInstance<Server, IncomingMessage, ServerResponse> =
 
 // Declare a route
 server.get('/', async (_req, res) => {
-  res.send(getHelloWorld());
+  res.send(getEnvironment());
 });
 
 // Run the server!

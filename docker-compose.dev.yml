@@ -1,19 +1,25 @@
-version: '3.4'
-
+version: '3.9'
 services:
   fastifybeej:
     image: fastifybeej
     env_file:
+      - .env
       - .env.development
     build:
       context: .
       dockerfile: ./Dockerfile
-      args:
-        NODE_ENV: ${NODE_ENV} # from .env file
     volumes:
       - .:/usr/app
-      - /usr/app/node_modules
+      - node_modules:/usr/app/node_modules
     ports:
-      - ${PORT}:${PORT}
-      - ${DEBUG_PORT}:${DEBUG_PORT}
+      - $PORT:$PORT
+      - $DEBUG_PORT:$DEBUG_PORT
     command: ['yarn', 'start:dev']
+
+volumes:
+  node_modules:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./node_modules

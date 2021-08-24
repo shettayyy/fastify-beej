@@ -46,6 +46,12 @@ Coming soon - Shields/badges from shields.io
 - `docker kill <container-id>`: A `SIGKILL` (kill the process signal) message is sent to the container to stop the container.
 - `docker exec -it <container id> <command>`: Executes your commands in the container. The `-i` flag attaches our terminal to the `STDIN` channel of the container. The `-t` flag formats the input and output for us.
 - `docker exec -it <container id> sh`: Opens the termnal within the container.
+- `docker-compose -f docker-compose.dev.yml up`: Run docker compose to build the container. By default, docker compose checks for a _docker-compose.yml_ config file. `-f` flag can be used to provide a different docker compose config file.
+- `docker-compose -f docker-compose.dev.yml up -d`: `-d` flag runs the container in the background.
+- `docker-compose -f docker-compose.dev.yml up --build`: Builds the container and runs it. Use `-d` to run the container in the background.
+- `docker-compose down --remove-orphans`: Stop the running container and discard all the connections.
+- `docker system prune -af --volumes && docker builder prune`: Remove all the volumes, builders and cached containers.
+- `docker-compose -f docker-compose.dev.yml config`: Replaces the variables used in the config files with the actual values and prints it to the terminal
 
 ## Release History
 
