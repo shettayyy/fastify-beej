@@ -10,7 +10,7 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - .:/usr/app
-      - node_modules:/usr/app/node_modules
+      - ./node_modules:/usr/app/node_modules
     ports:
       - $PORT:$PORT
       - $DEBUG_PORT:$DEBUG_PORT
