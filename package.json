@@ -46,7 +46,7 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "tsc --noEmit",
+      "tsc --skipLibCheck  --noEmit",
       "eslint --cache --fix"
     ],
     "*.{js,ts,css,md}": "prettier --write"
