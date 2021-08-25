@@ -10,16 +10,8 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - .:/usr/app
-      - ./node_modules:/usr/app/node_modules
+      # - ./node_modules:/usr/app/node_modules
     ports:
       - $PORT:$PORT
       - $DEBUG_PORT:$DEBUG_PORT
-    command: ['yarn', 'start:dev']
-
-volumes:
-  node_modules:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: ./node_modules
+    command: sh -cx 'yarn && yarn start:dev'
