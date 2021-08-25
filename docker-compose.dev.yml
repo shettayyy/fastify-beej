@@ -10,8 +10,9 @@ services:
       dockerfile: ./Dockerfile
     volumes:
       - .:/usr/app
-      # - ./node_modules:/usr/app/node_modules
     ports:
       - $PORT:$PORT
       - $DEBUG_PORT:$DEBUG_PORT
-    command: sh -cx 'yarn && yarn start:dev'
+    # We are installing yarn again to sync node_modules with the host
+    # You ca remove the re-installation command and use VSCode remote containers
+    command: sh -cx 'yarn install --frozen-lockfile --silent && yarn start:dev'
