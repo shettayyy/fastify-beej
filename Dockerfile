@@ -1,10 +1,9 @@
 #Specify a base image
 FROM node:14-alpine
 
-# In case of malicious behavior or because of bugs, a process running with too 
-# many privileges may have unexpected consequences on the whole system at runtime.
-# Set the system username for the image. Can be renamed to whatever is desired
-RUN addgroup -S nodejs && adduser -S node -G nodejs
+# More about dumb init - https://github.com/Yelp/dumb-init
+ADD https://github.com/Yelp/dumb-init/releases/download/v1.1.1/dumb-init_1.1.1_amd64 /usr/local/bin/dumb-init
+RUN chmod +x /usr/local/bin/dumb-init
 
 # Set the environment. This can be overridden from docker compose
 ENV NODE_ENV=${NODE_ENV}
@@ -18,6 +17,7 @@ RUN yarn install --frozen-lockfile --silent
 
 # Copy the project files
 COPY . .
+RUN yarn build
 
 # Expose the docker port to the local machine
 EXPOSE ${PORT}
@@ -32,4 +32,4 @@ USER node
 ENV HOME /home/node/
 
 # Start the fastify application
-CMD ["yarn", "start"]
+CMD ["dumb-init", "yarn", "start"]

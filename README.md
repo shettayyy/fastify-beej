@@ -23,6 +23,8 @@ Coming soon - Shields/badges from shields.io
 
 ## Usage
 
+- To start the production server locally, run `yarn build` and the `yarn start`. Please note that you should never code in this environment. Start the prod server only for testing.
+
 ## Tools and Libraries
 
 ## Path resolver
