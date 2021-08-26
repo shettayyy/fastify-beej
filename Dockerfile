@@ -13,7 +13,7 @@ ENV NODE_ENV=${NODE_ENV}
 WORKDIR /usr/app
 
 # Copy project manifest files and install the dependencies
-COPY ["package.json", "yarn.lock", "npm-shrinkwrap.json*", "./"]
+COPY ["package.json", "yarn.lock", "./"]
 RUN rm -rf node_modules build && yarn install --frozen-lockfile --silent
 
 # Copy the project files
