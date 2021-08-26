@@ -14,7 +14,7 @@ WORKDIR /usr/app
 
 # Copy project manifest files and install the dependencies
 COPY ["package.json", "yarn.lock", "./"]
-RUN rm -rf node_modules build && yarn install --frozen-lockfile --silent
+RUN yarn install --frozen-lockfile --silent
 
 # Copy the project files
 COPY . .
