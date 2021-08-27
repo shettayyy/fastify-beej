@@ -1,0 +1,39 @@
+# Name of our workflow
+name: prod-docker-image
+# Event at which we wanna run our actions
+on:
+  push:
+    branches: [main]
+# Jobs help us group the steps to run
+jobs:
+  # Name of the job
+  verify-and-push-image-to-docker-hub:
+    # The operating system to use for running the jobs
+    runs-on: ubuntu-latest
+    # List the steps to run in succession
+    steps:
+      # checks-out our repository under $GITHUB_WORKSPACE, so our workflow can access it
+      - name: GitHub Checkout v2
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fastify-beej:latest
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
