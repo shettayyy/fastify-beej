@@ -62,6 +62,7 @@ Coming soon - Shields/badges from shields.io
 - `docker-compose down --remove-orphans`: Stop the running container and discard all the connections.
 - `docker system prune -af --volumes && docker builder prune`: Remove all the volumes, builders and cached containers.
 - `docker-compose -f docker-compose.dev.yml config`: Replaces the variables used in the config files with the actual values and prints it to the terminal
+- `docker system df`: Show docker disk usage on the host machine. Add `-v` for a detailed output.
 
 ## Release History
 
