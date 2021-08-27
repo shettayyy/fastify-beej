@@ -1,18 +1,23 @@
-version: "3.4"
-
+version: '3.9'
 services:
-  fastifybeej:
-    image: fastifybeej
-    restart: unless-stopped
+  fastify-beej:
+    image: ${DOCKER_HUB_USERNAME}/fastify-beej
+    env_file:
+      - .env
+      - .env.development
     build:
       context: .
-      dockerfile: ./Dockerfile.dev
-    environment:
-      NODE_ENV: development
+      dockerfile: ./Dockerfile
+      target: dev
     volumes:
       - .:/usr/app
-      - /usr/app/node_modules
     ports:
-      - 3000:3000
-      - 9229:9229
-    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
+      - $PORT:$PORT
+      - $DEBUG_PORT:$DEBUG_PORT
+    # We are installing node_modules again to sync node_modules with the host.
+    # node_modules in the host system helps with linting and intellisense.
+    # The 1st time it builds the container, it might be slow.
+    # Consecutive runs would be faster.
+    # If you aren't happy with the re-installation step, you can remove the
+    # `yarn install` command and use VSCode remote containers extension
+    command: sh -cx 'yarn install --frozen-lockfile --silent && yarn start:dev'

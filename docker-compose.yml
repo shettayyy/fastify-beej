@@ -1,12 +1,13 @@
-version: '3.4'
-
+version: '3.9'
 services:
-  fastifybeej:
-    image: fastifybeej
+  fastify-beej:
+    image: ${DOCKER_HUB_USERNAME}/fastify-beej
+    env_file:
+      - .env
+      - .env.production
+    restart: unless-stopped
     build:
       context: .
       dockerfile: ./Dockerfile
-    environment:
-      NODE_ENV: production
     ports:
-      - 3000:3000
+      - ${PORT}:${PORT}
