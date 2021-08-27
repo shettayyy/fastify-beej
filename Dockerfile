@@ -20,7 +20,7 @@ RUN yarn install --frozen-lockfile --no-progress --silent
 # Copy the project files
 COPY . .
 
-FROM base AS test
+FROM base AS code-quality
 RUN yarn lint
 
 FROM test AS dev
