@@ -23,6 +23,8 @@ Coming soon - Shields/badges from shields.io
 ## Usage
 
 - Install [Docker Desktop](https://www.docker.com/get-started) for your respective operating system.
+- Enable Kubernetes by referring to the guide available in the link below:
+  <https://docs.docker.com/desktop/kubernetes/>
 - I, highly, recommend using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) for installing the LTS version of Node.js v14. If you do not want to use [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md), install the latest [LTS version of Node.js - v14](https://nodejs.org/en/about/releases/)
 - Clone the repository `git clone https://github.com/rashtay/fastify-beej.git <your-project-name>`
 - Change the `name` in _package.json_ and service names in docker config files.

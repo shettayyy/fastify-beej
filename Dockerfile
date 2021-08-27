@@ -29,8 +29,8 @@ FROM gcr.io/distroless/nodejs:14-debug
 WORKDIR /usr/app
 
 # copy production node_modules
-COPY --from=dev-alpine /usr/app/prod_node_modules ./node_modules
-COPY --from=dev-alpine /usr/app/build ./build
+COPY --from=dev /usr/app/prod_node_modules ./node_modules
+COPY --from=dev /usr/app/build ./build
 
 # Expose the docker port to the local machine
 EXPOSE ${PORT}
