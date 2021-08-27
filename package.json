@@ -10,15 +10,13 @@
     "build": "rimraf ./build && tsc",
     "start": "node build/index.js",
     "start:dev": "ts-node-dev --poll --clear --respawn --transpile-only --inspect=0.0.0.0:9229 ./src/index.ts",
+    "lint": "tsc --skipLibCheck  --noEmit && eslint --cache --fix --ext .ts,.js && prettier --write '**/*.{js,ts}'",
     "docker:run-dev": "docker-compose -f docker-compose.dev.yml up",
-    "docker:run-dev-bg": "docker-compose -f docker-compose.dev.yml up -d",
     "docker:build-dev": "docker-compose -f docker-compose.dev.yml up --build",
-    "docker:build-dev-bg": "docker-compose -f docker-compose.dev.yml up --build -d",
     "docker:run": "docker-compose up",
     "docker:build": "docker-compose up --build",
     "docker:stop": "docker-compose down --remove-orphans",
     "docker:clean": "docker system prune -af --volumes && docker builder prune",
-    "docker-config:dev": "docker-compose -f docker-compose.dev.yml config",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -49,6 +47,6 @@
       "tsc --skipLibCheck  --noEmit",
       "eslint --cache --fix"
     ],
-    "*.{js,ts,css,md}": "prettier --write"
+    "*.{js,ts,md}": "prettier --write"
   }
 }

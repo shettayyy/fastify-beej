@@ -1,5 +1,5 @@
 #Specify a base image
-FROM node:14-alpine AS dev
+FROM node:14-alpine AS base
 
 # Set the environment. This can be overridden from docker compose
 ENV NODE_ENV=${NODE_ENV}
@@ -19,6 +19,11 @@ RUN yarn install --frozen-lockfile --no-progress --silent
 
 # Copy the project files
 COPY . .
+
+FROM base AS test
+RUN yarn lint
+
+FROM test AS dev
 RUN yarn build
 
 # Distroless reduces the security threats by stripping unnecessary commands
@@ -29,8 +34,8 @@ FROM gcr.io/distroless/nodejs:14-debug
 WORKDIR /usr/app
 
 # copy production node_modules
-COPY --from=dev /usr/app/prod_node_modules ./node_modules
-COPY --from=dev /usr/app/build ./build
+COPY --from=base /usr/app/prod_node_modules ./node_modules
+COPY --from=base /usr/app/build ./build
 
 # Expose the docker port to the local machine
 EXPOSE ${PORT}

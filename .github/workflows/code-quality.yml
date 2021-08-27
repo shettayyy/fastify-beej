@@ -1,0 +1,17 @@
+# Name of our workflow
+name: code-quality
+# Event at which we wanna run our actions
+on: [push]
+# Jobs help us group the steps to run
+jobs:
+  # Name of the job
+  verify-code-quality:
+    # The operating system to use for running the jobs
+    runs-on: ubuntu-latest
+    # List the steps to run in succession
+    steps:
+      # Checkout to GitHub's repository for running our source code
+      - name: GitHub Checkout v2
+        uses: actions/checkout@v2
+      - run: npm install -g bats
+      - run: bats -v
