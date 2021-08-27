@@ -15,8 +15,9 @@ services:
       - $PORT:$PORT
       - $DEBUG_PORT:$DEBUG_PORT
     # We are installing node_modules again to sync node_modules with the host.
-    # Keeping node_modules in the host system, helps with linting and intellisense
-    # The 1st time it builds the container, it might be slow. Consecutive runs would be faster.
-    # If you aren't happy with the re-installation step,
-    # you can remove the re-installation command and use VSCode remote containers extension
+    # node_modules in the host system helps with linting and intellisense.
+    # The 1st time it builds the container, it might be slow.
+    # Consecutive runs would be faster.
+    # If you aren't happy with the re-installation step, you can remove the
+    # `yarn install` command and use VSCode remote containers extension
     command: sh -cx 'yarn install --frozen-lockfile --silent && yarn start:dev'

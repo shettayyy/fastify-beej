@@ -10,10 +10,9 @@ Coming soon - Shields/badges from shields.io
 
 - [Usage](#usage)
 - [Tools and Libraries](#tools-and-libraries)
-- [Path resolver](#path-resolver)
 - [Global Types](#global-types)
 - [Debugging](#debugging)
-- [Linting](#linting)
+- [Code Quality](#code-quality)
 - [Release History](#release-history)
 - [Contributing](#contributing)
 - [Author](#author)
@@ -23,17 +22,24 @@ Coming soon - Shields/badges from shields.io
 
 ## Usage
 
-- To start the production server locally, run `yarn build` and the `yarn start`. Please note that you should never code in this environment. Start the prod server only for testing.
+- Install [Docker Desktop](https://www.docker.com/get-started) for your respective operating system.
+- I, highly, recommend using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) for installing the LTS version of Node.js v14. If you do not want to use [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md), install the latest [LTS version of Node.js - v14](https://nodejs.org/en/about/releases/)
+- Clone the repository `git clone https://github.com/rashtay/fastify-beej.git <your-project-name>`
+- Change the `name` in _package.json_ and service names in docker config files.
+- Add appropriate license for your project
+- Change the markdown files as per your preference
+- To start the development server using Docker, run `yarn docker:build-dev` to build and run the container else you can use `yarn:run-dev` to run an existing container which has already been built
+- To start the development server locally without Docker, run `yarn start:dev`. Please not that the local or test database URL would be required to run the project locally.
+- To start the production server locally using docker, run `yarn docker:build` to build and run the container else you can use `yarn:run` to run an existing container which has already been built
+- To start the production server locally without Docker, run `yarn build` and `yarn start`. Please note that you should never code in this environment. Start the production server only for testing. Please not that the local or test database URL would be required to run the project locally.
 
 ## Tools and Libraries
-
-## Path resolver
 
 ## Global types
 
 ## Debugging
 
-## Linting
+## Code Quality
 
 ## Docker Commands
 
