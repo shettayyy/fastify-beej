@@ -1,11 +1,13 @@
+# Inspired by https://evilmartians.com/chronicles/build-images-on-github-actions-with-docker-layer-caching
+# Thank you Evil Martians
 # Name of our workflow
 name: Fastif Beej CI
 
 # Event at which we wanna run our actions
 # only trigger on pull request closed events
 on:
-  push:
   pull_request:
+    types: [opened, synchronize, reopened, closed, ready_for_review]
     branches:
       - main
 
@@ -54,7 +56,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           file: ./Dockerfile
           target: prod
-          push: ${{ github.event_name == 'push' }}
+          push: ${{ github.event.pull_request.merged == true }}
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fastify-beej:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           # Note the mode=max here
