@@ -4,7 +4,6 @@ name: Fastif Beej CI
 # Event at which we wanna run our actions
 # only trigger on pull request closed events
 on:
-  push:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
     branches:
