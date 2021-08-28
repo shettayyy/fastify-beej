@@ -1,5 +1,3 @@
-# Inspired by https://evilmartians.com/chronicles/build-images-on-github-actions-with-docker-layer-caching
-# Thank you Evil Martians
 # Name of our workflow
 name: Fastif Beej CI
 
@@ -55,7 +53,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           file: ./Dockerfile
           target: prod
-          push: ${{ github.event.pull_request.merged == true }}
+          push: ${{ github.event_name == 'push' }}
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fastify-beej:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           # Note the mode=max here
