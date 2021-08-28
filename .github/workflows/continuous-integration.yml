@@ -6,6 +6,7 @@ name: Fastif Beej CI
 on:
   push:
   pull_request:
+    types: [opened, synchronize, reopened, closed, ready_for_review]
     branches:
       - main
 
