@@ -28,7 +28,7 @@ RUN yarn build
 
 # Distroless reduces the security threats by stripping unnecessary commands
 # More on distroless https://github.com/GoogleContainerTools/distroless
-FROM gcr.io/distroless/nodejs:14-debug
+FROM gcr.io/distroless/nodejs:14-debug AS prod
 
 # Set the root directory
 WORKDIR /usr/app
