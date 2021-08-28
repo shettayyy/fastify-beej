@@ -10,7 +10,7 @@
     "build": "rimraf ./build && tsc",
     "start": "node build/index.js",
     "start:dev": "ts-node-dev --poll --clear --respawn --transpile-only --inspect=0.0.0.0:9229 ./src/index.ts",
-    "lint": "tsc --skipLibCheck  --noEmit && eslint --cache --fix --ext .ts,.js && prettier --write '**/*.{js,ts}'",
+    "lint": "tsc --skipLibCheck  --noEmit && eslint --cache --fix --ext .ts,.js",
     "docker:run-dev": "docker-compose -f docker-compose.dev.yml up",
     "docker:build-dev": "docker-compose -f docker-compose.dev.yml up --build",
     "docker:run": "docker-compose up",
