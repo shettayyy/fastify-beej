@@ -23,7 +23,7 @@ COPY . .
 FROM base AS code-quality
 RUN yarn lint
 
-FROM test AS dev
+FROM code-quality AS dev
 RUN yarn build
 
 # Distroless reduces the security threats by stripping unnecessary commands
@@ -35,7 +35,7 @@ WORKDIR /usr/app
 
 # copy production node_modules
 COPY --from=base /usr/app/prod_node_modules ./node_modules
-COPY --from=base /usr/app/build ./build
+COPY --from=dev /usr/app/build ./build
 
 # Expose the docker port to the local machine
 EXPOSE ${PORT}
