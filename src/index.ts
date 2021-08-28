@@ -39,7 +39,7 @@ async function closeGracefully(signal: NodeJS.Signals) {
   process.exit();
 }
 
-process.on('SIGINT' closeGracefully);
+process.on('SIGINT', closeGracefully);
 process.on('SIGTERM', closeGracefully);
 
 start();
