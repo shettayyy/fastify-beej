@@ -4,6 +4,10 @@ name: Fastif Beej CI
 # Event at which we wanna run our actions
 # only trigger on pull request closed events
 on:
+  release:
+    types: [published]
+    branches:
+      - main
   pull_request:
     types: [opened, synchronize, reopened, closed, ready_for_review]
     branches:
@@ -63,7 +67,7 @@ jobs:
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
 
       - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }} ${{ github.event.pull_request.merged == 'true' && true || false }}
+        run: echo ${{ steps.docker_build.outputs.digest }} ${{ github.event.action }}
 
         # This ugly bit is necessary if you don't want your cache to grow forever
         # till it hits GitHub's limit of 5GB.
