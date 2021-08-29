@@ -29,6 +29,12 @@ jobs:
       - name: GitHub Checkout v2
         uses: actions/checkout@v2
 
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ secrets.DOCKER_HUB_USERNAME }}/fastify-beej
+
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
@@ -58,15 +64,16 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           file: ./Dockerfile
           target: prod
-          # push: ${{ github.event.action == 'published' && true || false }}
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/fastify-beej:latest
+          push: ${{ github.event.action == 'published' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           # Note the mode=max here
           # More: https://github.com/moby/buildkit#--export-cache-options
           # And: https://github.com/docker/buildx#--cache-tonametypetypekeyvalue
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
-      - run: echo ${{ github.event.action }}
-      - run: echo ${{ github.event.action == 'published' && true || false }}
+      - name: Github event name and type
+        run: echo 'Event Name - ${{ github.event_name }} & Event Type - ${{ github.event.action }}'
       - name: Latest Docker Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
