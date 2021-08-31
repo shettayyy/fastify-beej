@@ -1,6 +1,11 @@
-# don't ever lint node_modules
+# Node packages
 node_modules
-# don't lint build output (make sure it's set to your correct build folder name)
+
+# Build output (make sure it's set to your correct build folder name)
 build
-# don't lint nyc coverage output
+
+# Coverage output
 coverage
+
+# MongoDB data folder created by docker
+.mongodb_data

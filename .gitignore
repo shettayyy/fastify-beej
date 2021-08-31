@@ -103,3 +103,6 @@ build
 
 # TernJS port file
 .tern-port
+
+# MongoDB data folder created by docker
+.mongodb_data

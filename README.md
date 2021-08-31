@@ -25,9 +25,10 @@ Coming soon - Shields/badges from shields.io
 - Install [Docker Desktop](https://www.docker.com/get-started) for your respective operating system.
 - Enable Kubernetes by referring to the guide available in the link below:
   <https://docs.docker.com/desktop/kubernetes/>
-- I, highly, recommend using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) for installing the LTS version of Node.js v14. If you do not want to use [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md), install the latest [LTS version of Node.js - v14](https://nodejs.org/en/about/releases/)
+- I, highly, recommend using [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md) for installing the LTS version of Node.js v14. If you do not want to use [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md), install the latest [LTS version of Node.js - v14](https://nodejs.org/en/about/releases/). Installing Node.js isn't necessary if you'd be using Docker.
 - Clone the repository `git clone https://github.com/rashtay/fastify-beej.git <your-project-name>`
 - Change the `name` in _package.json_ and service names in docker config files.
+- Create a folder named `.mongodb_data`. Inside `.mongodb_data`, create another folder named `mongodb_config`. `.mongo_data` saves all your MongoDB data in the host machine. If you have to clear all your docker data and start from scratch, you'll not lose your development data with this approach. if you would like to share your data across the team then, remove `.mongodb_data` from `.gitignore` file but make sure your team uses the same user name and password for the database.
 - Add appropriate license for your project
 - Change the markdown files as per your preference
 - To start the development server using Docker, run `yarn docker:build-dev` to build and run the container else you can use `yarn:run-dev` to run an existing container which has already been built
@@ -63,6 +64,7 @@ Coming soon - Shields/badges from shields.io
 - `docker system prune -af --volumes && docker builder prune`: Remove all the volumes, builders and cached containers.
 - `docker-compose -f docker-compose.dev.yml config`: Replaces the variables used in the config files with the actual values and prints it to the terminal
 - `docker system df`: Show docker disk usage on the host machine. Add `-v` for a detailed output.
+- `docker images`: To see a list of images we have on our local machine
 
 ## Release History
 

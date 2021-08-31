@@ -34,10 +34,6 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ${{ secrets.DOCKER_HUB_USERNAME }}/fastify-beej
-          tags: |
-            type=semver,pattern={{raw}}
-          flavor: |
-            latest=false
 
       - name: Set up Docker Buildx
         id: buildx

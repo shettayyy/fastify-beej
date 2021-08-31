@@ -1,7 +1,20 @@
 version: '3.9'
 services:
+  mongodb-dev:
+    image: mongo:5-focal
+    container_name: $MONGODB_DATABASE_HOSTNAME
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+    ports:
+      - $MONGODB_PORT:$MONGODB_PORT
+    volumes:
+      - .mongodb_data:/data/db
+      - .mongodb_data/mongodb_config:/data/configdb
   fastify-beej:
     image: ${DOCKER_HUB_USERNAME}/fastify-beej
+    environment:
+      - MONGODB_DATABASE_URI="mongodb://$MONGO_INITDB_ROOT_USERNAME:$MONGO_INITDB_ROOT_PASSWORD@$MONGODB_DATABASE_HOSTNAME:$MONGODB_PORT"
     env_file:
       - .env
       - .env.development
@@ -11,6 +24,7 @@ services:
       target: dev
     volumes:
       - .:/usr/app
+    restart: unless-stopped
     ports:
       - $PORT:$PORT
       - $DEBUG_PORT:$DEBUG_PORT
@@ -21,3 +35,5 @@ services:
     # If you aren't happy with the re-installation step, you can remove the
     # `yarn install` command and use VSCode remote containers extension
     command: sh -cx 'yarn install --frozen-lockfile --silent && yarn start:dev'
+    depends_on:
+      - $MONGODB_DATABASE_HOSTNAME
