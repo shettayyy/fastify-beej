@@ -4,6 +4,7 @@ import 'source-map-support/register';
 import fastify, { FastifyInstance } from 'fastify';
 import { Server, IncomingMessage, ServerResponse } from 'http';
 import { getEnvironment } from './utils/environment';
+import startDB from './utils/db';
 
 // Create a http server. We pass the relevant typings for our http version used.
 // By passing types we get correctly typed access to the underlying http objects in routes.
@@ -18,17 +19,6 @@ server.get('/', async (_req, res) => {
   res.send(getEnvironment());
 });
 
-// Run the server!
-const start = async () => {
-  try {
-    await server.listen(3000, '0.0.0.0');
-    console.info(`*^!@4=> Process id: ${process.pid}`);
-  } catch (err) {
-    server.log.error(err);
-    process.exit(1);
-  }
-};
-
 async function closeGracefully(signal: NodeJS.Signals) {
   console.info(`*^!@4=> Received signal to terminate: ${signal}`);
 
@@ -39,7 +29,23 @@ async function closeGracefully(signal: NodeJS.Signals) {
   process.exit();
 }
 
-process.on('SIGINT', closeGracefully);
-process.on('SIGTERM', closeGracefully);
+// Run the server!
+const start = async () => {
+  try {
+    await server.listen(3000, '0.0.0.0');
+
+    startDB();
+
+    // Close all the running services gracefully
+    process.on('SIGINT', closeGracefully);
+    process.on('SIGTERM', closeGracefully);
+
+    // Show the process ID on which the server is running
+    console.info(`*^!@4=> Process id: ${process.pid}`);
+  } catch (err) {
+    server.log.error(err);
+    process.exit(1);
+  }
+};
 
 start();

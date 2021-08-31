@@ -14,7 +14,7 @@ services:
   fastify-beej:
     image: ${DOCKER_HUB_USERNAME}/fastify-beej
     environment:
-      - MONGODB_DATABASE_URI="mongodb://$MONGO_INITDB_ROOT_USERNAME:$MONGO_INITDB_ROOT_PASSWORD@$MONGODB_DATABASE_HOSTNAME:$MONGODB_PORT"
+      - MONGODB_DATABASE_URI=mongodb://$MONGO_INITDB_ROOT_USERNAME:$MONGO_INITDB_ROOT_PASSWORD@$MONGODB_DATABASE_HOSTNAME:$MONGODB_PORT
     env_file:
       - .env
       - .env.development
