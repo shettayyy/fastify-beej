@@ -72,7 +72,7 @@ Coming soon - Shields/badges from shields.io
 
 ## Contributing
 
-Fastify Beej welcomes contributions to our open source project. When contributing, please follow the [Contributing](https://github.com/rashtay/React_Native_Seed/blob/main/CONTRIBUTING.md) guide.
+Fastify Beej welcomes contributions to our open source project. When contributing, please follow the [Contributing](https://github.com/rashtay/fastify-beej/blob/main/CONTRIBUTING.md) guide.
 
 ## Author
 
@@ -80,12 +80,12 @@ Fastify Beej welcomes contributions to our open source project. When contributin
 
 ## FAQ
 
-If you run into any issues, go through the [F.A.Q.](https://github.com/rashtay/React_Native_Seed/blob/main/FAQ.md) file. Amongst other things, this document contains information about common issues.
+If you run into any issues, go through the [F.A.Q.](https://github.com/rashtay/fastify-beej/blob/main/FAQ.md) file. Amongst other things, this document contains information about common issues.
 
 ## Support
 
-- If any information is missing from the [README](https://github.com/rashtay/React_Native_Seed/blob/main/README.md) file, want to raise a feature request or report any bug, please create a new [issue](https://github.com/rashtay/React_Native_Seed/issues) with appropriate labels.
+- If any information is missing from the [README](https://github.com/rashtay/fastify-beej/blob/main/README.md) file, want to raise a feature request or report any bug, please create a new [issue](https://github.com/rashtay/fastify-beej/issues) with appropriate labels.
 
 ## License
 
-For licensing information, go through [License](https://github.com/rashtay/React_Native_Seed/blob/main/LICENSE) file.
+For licensing information, go through [License](https://github.com/rashtay/fastify-beej/blob/main/LICENSE) file.
