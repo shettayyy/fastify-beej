@@ -1,33 +1,13 @@
 import 'source-map-support/register';
 
-// Require the framework and instantiate it
-import fastify, { FastifyInstance } from 'fastify';
-import { Server, IncomingMessage, ServerResponse } from 'http';
-import { getEnvironment } from './utils/environment';
-import startDB from './utils/db';
-
-// Create a http server. We pass the relevant typings for our http version used.
-// By passing types we get correctly typed access to the underlying http objects in routes.
-// If using http2 we'd pass <http2.Http2Server, http2.Http2ServerRequest, http2.Http2ServerResponse>
-const server: FastifyInstance<Server, IncomingMessage, ServerResponse> =
-  fastify({
-    logger: true,
-  });
+import { getEnvironment } from './config/environment';
+import { server, closeGracefully } from './config/server';
+import startDB from './config/db';
 
 // Declare a route
 server.get('/', async (_req, res) => {
   res.send(getEnvironment());
 });
-
-async function closeGracefully(signal: NodeJS.Signals) {
-  console.info(`*^!@4=> Received signal to terminate: ${signal}`);
-
-  await server.close();
-
-  // await db.close() if we have a db connection in this app
-  // await other things we should cleanup nicely
-  process.exit();
-}
 
 // Run the server!
 const start = async () => {

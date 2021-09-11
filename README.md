@@ -44,6 +44,10 @@ Coming soon - Shields/badges from shields.io
 
 ## Code Quality
 
+## Project Structure
+
+If you are inquisitive, [click the link to know more about the current project structure](https://github.com/goldbergyoni/nodebestpractices/blob/master/sections/projectstructre/breakintcomponents.md)
+
 ## Docker Commands
 
 - `docker ps`: List all running containers. If you add the flag `-all`, it will show you all the containers at halt.
