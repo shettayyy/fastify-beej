@@ -102,13 +102,6 @@
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
-"@types/redis@^2.8.31":
-  version "2.8.31"
-  resolved "https://registry.yarnpkg.com/@types/redis/-/redis-2.8.31.tgz#c11c1b269fec132ac2ec9eb891edf72fc549149e"
-  integrity sha512-daWrrTDYaa5iSDFbgzZ9gOOzyp2AJmYK59OlG/2KGBgYWF3lfs8GDKm1c//tik5Uc93hDD36O+qLPvzDolChbA==
-  dependencies:
-    "@types/node" "*"
-
 "@types/strip-bom@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/strip-bom/-/strip-bom-3.0.0.tgz#14a8ec3956c2e81edb7520790aecf21c290aebd2"
@@ -937,10 +930,46 @@ fast-safe-stringify@^2.0.8:
   resolved "https://registry.yarnpkg.com/fast-safe-stringify/-/fast-safe-stringify-2.0.8.tgz#dc2af48c46cf712b683e849b2bbd446b32de936f"
   integrity sha512-lXatBjf3WPjmWD6DpIZxkeSsCOwqI0maYMpgDlx8g4U2qi4lbjA9oH/HD2a87G+KfsUmo5WbJFmqBZlPxtptag==
 
+fastify-blipp@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/fastify-blipp/-/fastify-blipp-3.1.0.tgz#52a5bfa8400726df7cdc65cea90664e9e888974f"
+  integrity sha512-9tmQ2ljvUKOHKSRPMx1WhkvkZrinBc9y/EwU5THO27TDB+2haZ1BfGuGB4Dsb2R6CVGpuEjh8+dneV0CfLspQw==
+  dependencies:
+    chalk "^4.1.1"
+    fastify-plugin "^3.0.0"
+
+fastify-cors@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/fastify-cors/-/fastify-cors-6.0.2.tgz#4fd5102549659e9b34d252fd7ee607b63d021390"
+  integrity sha512-sE0AOyzmj5hLLRRVgenjA6G2iOGX35/1S3QGYB9rr9TXelMZB3lFrXy4CzwYVOMiujJeMiLgO4J7eRm8sQSv8Q==
+  dependencies:
+    fastify-plugin "^3.0.0"
+    vary "^1.1.2"
+
 fastify-error@^0.3.0:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/fastify-error/-/fastify-error-0.3.1.tgz#8eb993e15e3cf57f0357fc452af9290f1c1278d2"
   integrity sha512-oCfpcsDndgnDVgiI7bwFKAun2dO+4h84vBlkWsWnz/OUK9Reff5UFoFl241xTiLeHWX/vU9zkDVXqYUxjOwHcQ==
+
+fastify-formbody@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/fastify-formbody/-/fastify-formbody-5.1.0.tgz#65cccf9792aac1a638927f7150cd1ea30908d8dc"
+  integrity sha512-dLFQ8gMQeLuV45J72svDbrp6CZ3hxsaiK2dd3vzoiCs9wEmCSbbJV+/afQl1cfvf19+NfCIzYVQIg1r4yO4Epw==
+  dependencies:
+    fastify-plugin "^3.0.0"
+
+fastify-helmet@^5.3.2:
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/fastify-helmet/-/fastify-helmet-5.3.2.tgz#eda259b8a9ad5ccc6dacc1b7ed358c03f59a7f7f"
+  integrity sha512-X9lKZa7wjvMe79eUP0Fo+3GMMmbxKC92ddJGdmSIEZxn0JwSw+Fw5mlOiM9RABRQGphdLDSHIL/29ywH7GUusQ==
+  dependencies:
+    fastify-plugin "^3.0.0"
+    helmet "^4.0.0"
+
+fastify-plugin@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-3.0.0.tgz#cf1b8c8098e3b5a7c8c30e6aeb06903370c054ca"
+  integrity sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==
 
 fastify-warning@^0.2.0:
   version "0.2.0"
@@ -1145,6 +1174,11 @@ has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
+
+helmet@^4.0.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/helmet/-/helmet-4.6.0.tgz#579971196ba93c5978eb019e4e8ec0e50076b4df"
+  integrity sha512-HVqALKZlR95ROkrnesdhbbZJFi/rIVSoNq6f3jA/9u6MIbTsPh3xZwihjeI5+DO/2sOV6HMHooXcEOuwskHpTg==
 
 hosted-git-info@^2.1.4:
   version "2.8.9"
@@ -2374,6 +2408,11 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+vary@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
+  integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
 webidl-conversions@^6.1.0:
   version "6.1.0"

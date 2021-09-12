@@ -33,7 +33,7 @@
         "allowObjectEnd": true
       }
     ],
-    "no-console": [1, { "allow": ["info"] }],
+    "no-console": [1, { "allow": ["info", "error"] }],
     "no-use-before-define": [2, { "functions": false }],
     "no-param-reassign": [
       "error",
