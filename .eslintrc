@@ -5,6 +5,7 @@
   "extends": [
     "standard",
     "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
     "plugin:prettier/recommended"
   ],
   "rules": {
