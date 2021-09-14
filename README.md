@@ -10,7 +10,6 @@ Coming soon - Shields/badges from shields.io
 
 - [Usage](#usage)
 - [Tools and Libraries](#tools-and-libraries)
-- [Global Types](#global-types)
 - [Debugging](#debugging)
 - [Code Quality](#code-quality)
 - [Release History](#release-history)
@@ -38,11 +37,29 @@ Coming soon - Shields/badges from shields.io
 
 ## Tools and Libraries
 
-## Global types
+- [Node.js](https://nodejs.org/en/about/) is designed to build scalable network applications
+- [Fastify and it's ecosystem](https://www.fastify.io/) is a web framework highly focused on providing the best developer experience with the least overhead and a powerful plugin architecture. Check the `src/index.ts` file for all the helpful plugins we have registered
+- [Typescript](https://www.typescriptlang.org/) for type checking and then compiling the code to plain/vanilla JavaScript
+- [Husky](https://www.npmjs.com/package/husky) to add precommit and prepush hooks
+- [Lint Staged](https://www.npmjs.com/package/lint-staged) to lint the currently modified file
+- [Prettier](https://prettier.io/) configured for formatting
 
 ## Debugging
 
+- [Node isnpector has been enabled for debugging](https://nodejs.org/api/inspector.html)
+- [VSCode settings has been added (under .vscode) for debugging the nodejs instance running in the docker container](https://www.bigbinary.com/blog/debug-nodejs-app-running-in-a-docker-container)
+
 ## Code Quality
+
+The project comes preconfigured with `eslint` and `prettier` . I've added support for `typescript` linting. I have listed the additional packages being used for linting:
+
+- eslint-plugin-standard
+- eslint-plugin-import
+- eslint-config-prettier
+
+The eslint, prettier and typescript configuration files have been updated to accomodate the additional plugins.
+
+I have made sure you cannot push the code if there are any lint or [type related](https://github.com/okonet/lint-staged/issues/468#issuecomment-605102567) issues.
 
 ## Project Structure
 
