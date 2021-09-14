@@ -3,9 +3,15 @@ import fastifyBlipp from 'fastify-blipp';
 import fastifyHelmet from 'fastify-helmet';
 import fastifyFormbody from 'fastify-formbody';
 import fastifyCors from 'fastify-cors';
+import fastifyCompress from 'fastify-compress';
+import fastifyCookie from 'fastify-cookie';
+import fastifyCsrf from 'fastify-csrf';
+import fastifyMultipart from 'fastify-multipart';
+import fastifyRateLimit from 'fastify-rate-limit';
+import FastifyGracefulExit from '@mgcrea/fastify-graceful-exit';
 
 import { routes, PREFIX } from './routes';
-import { server, closeGracefully, logError } from './config/server';
+import { server, logError } from './config/server';
 import startDB from './config/db';
 
 // https://www.npmjs.com/package/helmet
@@ -20,6 +26,27 @@ server.register(fastifyBlipp);
 // https://github.com/fastify/fastify-cors
 server.register(fastifyCors);
 
+// https://github.com/fastify/fastify-compress
+server.register(fastifyCompress);
+
+// https://github.com/fastify/fastify-cookie
+server.register(fastifyCookie);
+
+// https://github.com/fastify/fastify-csrf
+server.register(fastifyCsrf, { cookieOpts: { signed: true } });
+
+// https://github.com/fastify/fastify-multipart
+server.register(fastifyMultipart);
+
+// https://github.com/fastify/fastify-rate-limit
+server.register(fastifyRateLimit, {
+  max: 100,
+  timeWindow: '1 minute',
+});
+
+// https://github.com/mgcrea/fastify-graceful-exit
+server.register(FastifyGracefulExit, { timeout: 3000 });
+
 // Register all routes
 server.register(routes, {
   prefix: PREFIX,
@@ -33,9 +60,6 @@ const start = async () => {
     startDB();
     server.blipp();
 
-    // Close all the running services gracefully
-    process.on('SIGINT', closeGracefully);
-    process.on('SIGTERM', closeGracefully);
     process.on('uncaughtException', logError);
     process.on('unhandledRejection', logError);
 

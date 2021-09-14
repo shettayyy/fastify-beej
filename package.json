@@ -20,16 +20,23 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@mgcrea/fastify-graceful-exit": "^0.2.2",
     "fastify": "^3.20.2",
     "fastify-blipp": "^3.1.0",
+    "fastify-compress": "^3.6.0",
+    "fastify-cookie": "^5.3.1",
     "fastify-cors": "^6.0.2",
+    "fastify-csrf": "^3.1.0",
     "fastify-formbody": "^5.1.0",
     "fastify-helmet": "^5.3.2",
+    "fastify-multipart": "^4.0.7",
     "fastify-plugin": "^3.0.0",
+    "fastify-rate-limit": "^5.6.2",
     "mongodb": "^4.1.1",
     "source-map-support": "^0.5.19"
   },
   "devDependencies": {
+    "@types/busboy": "^0.2.4",
     "@types/node": "^16.6.2",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",

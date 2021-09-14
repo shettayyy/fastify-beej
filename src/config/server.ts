@@ -11,17 +11,6 @@ export const server: FastifyInstance<Server, IncomingMessage, ServerResponse> =
     ignoreTrailingSlash: true,
   });
 
-export async function closeGracefully(signal: NodeJS.Signals): Promise<void> {
-  console.info(`*^!@4=> Received signal to terminate: ${signal}`);
-
-  await server.close();
-
-  // TODO: clean the connections gracefully
-  // await db.close() if we have a db connection in this app
-  // await other things we should cleanup nicely
-  process.exit();
-}
-
 // TODO: Better off in npm/starcast-server-utils or logging config
 export const logError = (error: Error): void => {
   if (IS_DEV) {
